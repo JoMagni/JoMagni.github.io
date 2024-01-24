@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles_calculatrice.css">
+    <title>Calculatrice</title>
+</head>
+<body>
+    <a href="../index.html" class="return-button">Retour</a>
+
+    <div class="calculator">
+
+		<div class="row">
+			<div class="block">
+				<div class="calculation-box">
+					<h2>Nombre 1</h2>
+					<input type="text" id="input1" value="0" onclick="selectText('input1')">
+				</div>
+
+				<div class="calculation-box">
+					<h2>Nombre 2</h2>
+					<input type="text" id="input2" value="0" onclick="selectText('input2')">
+				</div>
+
+				<div class="calculation-box">
+					<h2>Nombre 3</h2>
+					<input type="text" id="input3" value="0" onclick="selectText('input3')">
+				</div>
+
+				<div class="calculation-box">
+					<h2>Nombre 4</h2>
+					<input type="text" id="input4" value="0" onclick="selectText('input4')">
+				</div>
+
+				<div class="calculation-box">
+					<h2>Nombre 5</h2>
+					<input type="text" id="input5" value="0" onclick="selectText('input5')">
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="calculation-box">
+					<h2>Nombre 6</h2>
+					<input type="text" id="input6" value="0" onclick="selectText('input6')">
+				</div>
+
+				<div class="calculation-box">
+					<h2>Nombre 7</h2>
+					<input type="text" id="input7" value="0" onclick="selectText('input7')">
+				</div>
+				
+				<div class="calculation-box">
+					<h2>Nombre 8</h2>
+					<input type="text" id="input8" value="0" onclick="selectText('input7')">
+				</div>
+				
+				<div class="calculation-box">
+					<h2>Nombre 9</h2>
+					<input type="text" id="input9" value="0" onclick="selectText('input7')">
+				</div>
+				
+				<div class="calculation-box">
+					<h2>Nombre 10</h2>
+					<input type="text" id="input10" value="0" onclick="selectText('input7')">
+				</div>
+
+				
+			</div>
+		</div>
+		
+		<div class="calculation-box">
+			<label for="multiplier">Multiplicateur:</label>
+			<input type="radio" id="multiply1" name="multiplier" value="1" checked>
+			<label for="multiply1">1x</label>
+
+			<input type="radio" id="multiply1_5" name="multiplier" value="1.5">
+			<label for="multiply1_5">1.5x</label>
+
+			<input type="radio" id="multiply2" name="multiplier" value="2">
+			<label for="multiply2">2x</label>
+			<br>
+
+			<button onclick="addNumbers()">Additionner</button>
+			<h2>Résultat</h2>
+			<input type="text" id="result" placeholder="Résultat" readonly>
+		</div>
+		
+    </div>
+
+    <script>
+        function selectText(elementId) {
+            var inputField = document.getElementById(elementId);
+            inputField.select();
+        }
+
+        function addNumbers() {
+            var num1 = parseFloat(document.getElementById("input1").value) || 0;
+            var num2 = parseFloat(document.getElementById("input2").value) || 0;
+            var num3 = parseFloat(document.getElementById("input3").value) || 0;
+            var num4 = parseFloat(document.getElementById("input4").value) || 0;
+            var num5 = parseFloat(document.getElementById("input5").value) || 0;
+            var num6 = parseFloat(document.getElementById("input6").value) || 0;
+            var num7 = parseFloat(document.getElementById("input7").value) || 0;
+            var num7 = parseFloat(document.getElementById("input8").value) || 0;
+            var num7 = parseFloat(document.getElementById("input9").value) || 0;
+            var num7 = parseFloat(document.getElementById("input10").value) || 0;
+
+            var multiplier = getSelectedMultiplier();
+            var result = (num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 + num10) * multiplier;
+            document.getElementById("result").value = isNaN(result) ? "Entrée non valide" : result;
+        }
+
+        function getSelectedMultiplier() {
+            var multipliers = document.getElementsByName("multiplier");
+            for (var i = 0; i < multipliers.length; i++) {
+                if (multipliers[i].checked) {
+                    return parseFloat(multipliers[i].value);
+                }
+            }
+            return 1; // Valeur par défaut si aucun multiplicateur n'est sélectionné
+        }
+    </script>
+</body>
+</html>
