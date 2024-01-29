@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\..\..\styles.css">
+    <title>SAP Astuces</title>
+</head>
+
+<header>
+	<h1 class="header"><nav> <a href="..\..\index.html">Page Principale</a> <nav></h1>
+</header>
+	
+<body>
+
+    <h2 class="first">Transaction SAP</h1>
+		<p class="scoreboard">/IWFND/MAINT_SERVICE --> ZAPI_COSTCENTER_SRV --> Client SAP Gateway</p>
+
+    <h2 class="first">SAP Notes</h2>
+		<p class="scoreboard"> <a href="https://me.sap.com/notes/1574568/E" target="_blank">1574568 - SAP Gateway Foundation and SAP Gateway 2.0 - Known Constraints</a></p>
+		<p class="scoreboard"> <a href="https://me.sap.com/notes/2330688/E" target="_blank">2330688 - How to Use Methods And Filters in OData Services</a></p>
+
+    <h2 class="first">OData Exemples</h2>
+		<p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button>/sap/opu/odata/sap/API_COSTCENTER_SRV/A_CostCenter?$format=json&$filter=CompanyCode eq 'AERO'</p>
+		<p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button>/sap/opu/odata/sap/API_COSTCENTER_SRV/A_CostCenter?$format=json&$filter=CostCenter eq '628314'</p>
+		<p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button>/sap/opu/odata/sap/API_COSTCENTER_SRV/A_CostCenter?$format=json&$filter=startswith(CostCenter, '628')</p>
+		<p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button>/sap/opu/odata/sap/API_COSTCENTER_SRV/A_CostCenter?$format=json&$filter=startswith(CostCenter, '628')&$select=ControllingArea,CostCenter,CompanyCode</p>
+		<p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button>/sap/opu/odata/sap/API_COSTCENTER_SRV/A_CostCenter?$format=xml&$filter=startswith(CostCenter, '628') and ValidityEndDate ge datetime'2020-06-26T00:00:00' and ValidityStartDate le datetime'2020-06-26T23:59:59.999'</p>
+		<p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button>/sap/opu/odata/sap/API_COSTCENTER_SRV/A_CostCenter(ControllingArea='LHOT',CostCenter='628314',ValidityEndDate=datetime'9999-12-31T00:00:00')/to_Text</p>
+
+    <script>
+        function copyToClipboard(button) {
+            var textToCopy = button.nextSibling.textContent || button.nextSibling.innerText;
+            navigator.clipboard.writeText(textToCopy.trim());
+            alert('Copied to clipboard: ' + textToCopy.trim());
+        }
+    </script>
+
+</body>
+</html>

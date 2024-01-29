@@ -1,0 +1,21 @@
+.section {
+	background-color: #EEEEEE;
+	padding: 15px;
+	margin-top: 0;
+}
+
+.section:hover {
+	background-color: #FFFFFF;
+}
+
+mot_clef {
+	color: #CC0000;
+}
+
+com {
+	color: #00BB00;
+}
+
+info {
+	color: #00BBBB;
+}

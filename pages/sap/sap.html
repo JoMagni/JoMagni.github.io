@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\..\styles.css">
+    <link rel="stylesheet" href="..\..\styles_code.css">
+    <title>SAP Astuces</title>
+</head>
+
+<header>
+	<h1 class="header"><a href="..\..\index.html">Page Principale</a></h1>
+</header>
+	
+<body>
+
+    <h1>Astuce SAP</h1>
+	
+	<h2 class="first">Données Utilisateur</h2>
+	<p class="section">
+	<mot_clef>PARAMETERS</mot_clef><br>
+	<info>PARAMETERS permet à l'utilisateur de rentrer une valeurs dans le champs</info><br>
+	PARAMETERS v_variable TYPE table-champs.
+	</p>
+	
+	<p class="section">
+	<mot_clef>SELECT-OPTIONS</mot_clef><br>
+	<info>Le SELECT-OPTIONS permet à l'utilisateur de rentrer les valeurs et conditions qu'il souhaite</info><br>
+	SELECT-OPTIONS: v_variable FOR table-champs.
+	</p>
+	
+	<p class="section">
+	<mot_clef>RADIO BUTTON</mot_clef><br>
+	<info>Les RADIO BUTTON permettent à l'utilisateur de selectionner une valeurs parmis un ensemble</info><br>
+	PARAMETERS rb_01 RADIOBUTTON GROUP rb_0 DEFAULT 'X' USER-COMMAND ucomm. <com class="commentaire">" --> 'USER-COMMAND UCOMM' rend les Boutons Radio dynamiques au clique</com><br>
+	PARAMETERS rb_02 RADIOBUTTON GROUP rb_0.
+	<br>
+	<br>
+	<info>Les Bouttons Radio sont associé à un groupe pour savoir à qui ils sont liés.<br>
+	Ils ont aussi un nom de variable pour définir si leur état est 'X' ou ' '.</info>
+	</p>
+	
+	<!-- ############################################################################################### -->
+	<h2 class="first">Affichage</h2>
+	<p class="section">
+	<mot_clef>Onglets</mot_clef><br>
+	<info>Les Onglets permettent à l'utilisateur de naviguer dans plusieurs pages de l'application</info><br>
+	<br>
+	<com>Initialisation des écrants pour les onglets</com><br>
+	SELECTION-SCREEN BEGIN OF SCREEN 100 AS SUBSCREEN.<br>
+	SELECTION-SCREEN END OF SCREEN 100.<br>
+	<br>
+	SELECTION-SCREEN BEGIN OF SCREEN 200 AS SUBSCREEN.<br>
+	SELECTION-SCREEN END OF SCREEN 200.<br>
+	<br>
+	SELECTION-SCREEN BEGIN OF SCREEN 300 AS SUBSCREEN.<br>
+	SELECTION-SCREEN END OF SCREEN 300.<br>
+	<br>
+	<com>Création des onglets dans un bloque</com><br>
+	SELECTION-SCREEN: BEGIN OF TABBED BLOCK vb_onglets FOR 30 LINES,<br>
+    TAB (20) tab0 USER-COMMAND ucomm_1 DEFAULT SCREEN 100,<br>
+    TAB (20) tab1 USER-COMMAND ucomm_2 DEFAULT SCREEN 200,<br>
+    TAB (20) tab2 USER-COMMAND ucomm_3 DEFAULT SCREEN 300,<br>
+	END OF BLOCK vb_onglets.
+	<br>
+	<br>
+	<info>Pour ajouter des éléments dans les onglets il faudra les mettres dans l'initialisation de l'écrants voulus</info>
+	</p>
+	
+	
+	<p class="section">
+	<mot_clef>Objet ALV</mot_clef><br>
+	<info>L'affichage ALV est la version amélioré du 'Write' :<br>
+	- Il permet d'affiche sous forme de tableau des données<br>
+	- Il peut aussi les trier et les organiser.</info>
+	<br>
+	<br>
+	TRY.<br>
+	  cl_salv_table=>factory( IMPORTING r_salv_table  = DATA(lo_alv)<br>
+							  CHANGING  t_table       = lt_mara ). <com class="commentaire">" --> 't_table' est la table d'affichage du tableau ALV</com><br>
+	<br>
+	  lo_alv->get_functions( )->set_all( abap_true ).<br>
+	<br>
+	  DATA(lo_layout) = lo_alv->get_layout( ).<br>
+	<br>
+	  lo_layout->set_key( VALUE salv_s_layout_key( report = sy-repid ) ).<br>
+	  lo_layout->set_default( abap_true ).<br>
+	  lo_layout->set_save_restriction( if_salv_c_layout=>restrict_none ).<br>
+	  lo_alv->display( ).<br>
+	<br>
+	  CATCH cx_salv_msg.<br>
+	  CATCH cx_salv_not_found.<br>
+	ENDTRY.
+	</p>
+	<!-- ############################################################################################### -->
+	<h2 class="first">Requêtes</h2>
+	<p class="section">
+	<mot_clef>SELECT</mot_clef><br>
+	<info>Les SELECT permettent de faire des requêtes dans une table pour en extraire des données</info>
+	<br>
+	<br>
+	<com>"Déclaration du type --> Permet de créer un type de table avec différents champs</com><br>
+	TYPES: BEGIN OF ty_mara,<br>
+			 nom  TYPE aenam,<br>
+			 date TYPE ersda,<br>
+		   END OF ty_mara.<br>
+	<br>
+	<com>" Déclaration d'une entête du type de table [ls_mara] et de la variable de la table [lt_mara].</com><br>
+	DATA: lt_mara TYPE TABLE OF ty_mara,<br>
+		  ls_mara TYPE ty_mara.<br>
+	<br>
+	<com>"Permet à l'utilisateur de rentrer les valeurs et conditions qu'il souhaite</com><br>
+	SELECT-OPTIONS: v_date FOR mara-ersda.<br>
+	SELECT-OPTIONS: v_nom  FOR mara-aenam.<br>
+	<br>
+	<com>" Requête des champs de la table</com><br>
+	SELECT aenam, ersda<br>
+	  INTO TABLE @lt_mara<br>
+	  WHERE ersda IN @v_date "AAAAMMJJ<br>
+      AND   aenam IN @v_nom.<br>
+	<br>
+	<com>"Récupération des données de la requête</com><br>
+	LOOP AT lt_mara INTO ls_mara.<br>
+	  WRITE: / ls_mara-nom, '--', ls_mara-date.<br>
+	ENDLOOP.
+	</p>
+	
+	<!-- ############################################################################################### -->
+	<h2 class="first">API</h2>
+	<p class="section">
+		<a href="api/costcenter.html">
+			<mot_clef>ZAPI_COSTCENTER_SRV</mot_clef>
+		</a>
+		<br>
+		<br>
+		<info>API SAP sur les COSTCENTER</info>
+	</p>
+</body>
+</html>
