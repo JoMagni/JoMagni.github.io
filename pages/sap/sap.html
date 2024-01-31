@@ -14,13 +14,28 @@
 	
 <body>
 
-    <h1>Astuce SAP</h1>
+    <h1 class="titre_secondaire">Astuce SAP</h1>
 	
+	<!-- ############################################################################################### -->
+	<h2 class="first">Transactions SAP</h2>
+	<p class="section">
+		<a href="transactions/generales.html">
+			<mot_clef>Transactions</mot_clef>
+		</a>
+		<br>
+		<br>
+		<info>Recueuil de transaction SAP</info>
+	</p>
+	
+	<!-- ############################################################################################### -->
 	<h2 class="first">Données Utilisateur</h2>
 	<p class="section">
 	<mot_clef>PARAMETERS</mot_clef><br>
 	<info>PARAMETERS permet à l'utilisateur de rentrer une valeurs dans le champs</info><br>
-	PARAMETERS v_variable TYPE table-champs.
+	PARAMETERS v_variable TYPE table-champs.<br>
+	<br>
+	<info>Le mot clef 'DEFAULT' permet de préremplir les données dans le champs</info><br>
+	SELECT-OPTIONS: v_date FOR mara-ersda DEFAULT '20010101' TO '20011231'.<com> --> ici on viens définit un ensemble de date</com>
 	</p>
 	
 	<p class="section">
@@ -99,6 +114,9 @@
 	<info>Les SELECT permettent de faire des requêtes dans une table pour en extraire des données</info>
 	<br>
 	<br>
+	<br>
+	TABLES: mara.<br>
+	<br>
 	<com>"Déclaration du type --> Permet de créer un type de table avec différents champs</com><br>
 	TYPES: BEGIN OF ty_mara,<br>
 			 nom  TYPE aenam,<br>
@@ -124,6 +142,187 @@
 	  WRITE: / ls_mara-nom, '--', ls_mara-date.<br>
 	ENDLOOP.
 	</p>
+	
+	
+	
+	<p class="section">
+	<mot_clef>SELECT INNER JOIN</mot_clef><br>
+	<info>Les SELECT INNER JOIN permettent de faire des requêtes dans plusieurs table pour en extraire des données avec un paramètre commun</info>
+	<br>
+	<br>
+	<br>
+	TABLES: mara, bkpf.<br>
+	<br>
+	SELECT a~aenam,<br>
+       a~ersda,<br>
+       b~bukrs<br>
+    INTO TABLE @lt_table<br>
+    FROM mara AS a<br>
+    INNER JOIN bkpf AS b <com>" --> les champs 'ersda' de la table 'mara' et 'bldat' de la table 'bkpf' contiennent des valeurs équivalentes, ce qui établit une relation entre les deux tables</com><br>
+    ON a~ersda = b~bldat<br>
+    WHERE a~ersda In @v_date<br>
+		AND a~aenam In @v_nom.<br>
+	</p>
+	
+	<!-- ############################################################################################### -->
+	<h2 class="first">Variables</h2>
+	<p class="section">
+	<mot_clef>DATA [TYPE]</mot_clef><br>
+	<info>L'instruction 'DATA' permet de faire des variables qui stocks des données</info>
+	<br>
+	<br>
+	DATA: variable_1 TYPE i,<br>
+		  variable_2 TYPE i,<br>
+		  variable_3 TYPE i.
+	</p>
+	
+	<p class="section">
+	<mot_clef>DATA [TYPE REF TO]</mot_clef><br>
+	<info>
+		L'instruction 'TYPE REF TO' permet de faire des pointeurs qui stock la case mémoire d'une variable.<br>
+		Elle va de paire avec l'instruction 'GET REFERENCE OF' qui permet de renseigner la case mémoir d'une variable.
+	</info>
+	<br>
+	<br>
+	DATA: lo_variable_1 TYPE REF TO i.<br>
+	DATA: lo_variable_2 TYPE REF TO i.<br>
+	DATA: lo_variable_3 TYPE REF TO i.<br>
+	<br>
+	<com>
+	" Asignation des emplacement des variables<br>
+	</com>
+	GET REFERENCE OF variable_1 INTO lo_variable_1.<br>
+	GET REFERENCE OF variable_2 INTO lo_variable_2.<br>
+	GET REFERENCE OF variable_3 INTO lo_variable_3.<br>
+	<br>
+	<br>
+	<info>Pour récuperer la valeur de la variable nous pouvons faire comme ceci :</info><br>
+	<br>
+	x = variable_1.
+	<br>
+	<br>
+	<info>Ou bien comme ceci :</info><br>
+	<br>
+	x = lo_variable_1->*.<br>
+	<br>
+	<br>
+	<info>Il est également possible de changer le chemin d'un pointeur :</info><br>
+	<br>
+	lo_variable_1->* = lo_variable_2->*.<br>
+	<br>
+	<br>
+	--------------------------------------------------------------------------------------------------------<br>
+	<br>
+	<info>Voici un programme d'exemple réunissant les notions vue ci-dessus :</info>
+	<br>
+	<br>
+	<com>
+	* ###############################################<br>
+	* Déclaration des variables<br>
+	* ###############################################<br>
+	</com>
+	DATA: variable_1 TYPE i,<br>
+		  variable_2 TYPE i,<br>
+		  variable_3 TYPE i,<br>
+		  increment  TYPE i.<br>
+	<br>
+	DATA: it_table TYPE TABLE OF REF TO i."data.<br>
+	<br>
+	DATA: lo_variable_1 TYPE REF TO i.<br>
+	DATA: lo_variable_2 TYPE REF TO i.<br>
+	DATA: lo_variable_3 TYPE REF TO i.<br>
+	<br>
+	<com>
+	* ###############################################<br>
+	* Asignation des emplacements de variables<br>
+	* ###############################################<br>
+	</com>
+	GET REFERENCE OF variable_1 INTO lo_variable_1.<br>
+	GET REFERENCE OF variable_2 INTO lo_variable_2.<br>
+	GET REFERENCE OF variable_3 INTO lo_variable_3.<br>
+	<br>
+	variable_1 = 1.<br>
+	variable_2 = 2.<br>
+	variable_3 = 3.<br>
+	<br>
+	<com>" enregistrement de la valeur du chemin de la variable</com><br>
+	APPEND lo_variable_1 TO it_table.<br>
+	APPEND lo_variable_2 TO it_table.<br>
+	APPEND lo_variable_3 TO it_table.<br>
+	<br>
+	<com>
+	* ###############################################<br>
+	* Code principale<br>
+	* ###############################################<br>
+	</com>
+	PERFORM afficher.<br>
+	<br>
+	<com>" traitement sur chemin variable</com><br>
+	lo_variable_1->* = lo_variable_2->*.<br>
+	<br>
+	PERFORM afficher.<br>
+	<br>
+	<com>" traitement sur chemin variable dans une table</com><br>
+	increment = 1.<br>
+	DO 2 TIMES.<br>
+	  TRY.<br>
+		  lo_variable_1 = it_table[ increment ].  <com>" redéfinis le chemin d'accès de la variable</com><br>
+		  lo_variable_1->* = lo_variable_3->*.    <com>" modifie la valeur de la variable par son chemin d'accès</com><br>
+		<br>
+		CATCH cx_sy_itab_line_not_found.<br>
+		  WRITE 'erreur'.<br>
+	  ENDTRY.<br>
+	<br>
+	  increment = increment + 1.<br>
+	ENDDO.<br>
+	<br>
+	PERFORM afficher.<br>
+	<br>
+	<com>* ########################################################################################</com><br>
+	FORM afficher.<br>
+	  WRITE: / |variable_1 = { variable_1 }|,<br>
+			 / |variable_2 = { variable_2 }|,<br>
+			 / |variable_3 = { variable_3 }|,<br>
+			 / '‎'.<br>
+	ENDFORM.<br>
+	<br>
+	<info>Sortie du programme :</info>
+	<br>
+	<br>
+	variable_1 = 1<br>
+	variable_2 = 2<br>
+	variable_3 = 3<br>
+	<br>
+	variable_1 = 2<br>
+	variable_2 = 2<br>
+	variable_3 = 3<br>
+	<br>
+	variable_1 = 3<br>
+	variable_2 = 3<br>
+	variable_3 = 3<br>
+	</p>
+	
+	<!-- _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ -->
+	<p class="section">
+	<mot_clef>Concaténation</mot_clef><br>
+	<info>La concaténation permet d'assembler des données (texte / nombre) pour en faire une seul donnée texte.</info>
+	<br>
+	<br>
+	DATA:<br>
+      variable_final(70)  TYPE c,<br>
+      v_date(20)          TYPE c,<br>
+      v_nom(20)           TYPE c,<br>
+      v_age               TYPE i.<br>
+	<br>
+	variable_final = space. <com>" 'SPACE' fais que le champs est vide, pareille pour ''</com><br>
+	v_date = '31 Janvier 2024'.<br>
+	v_nom  = 'Joël'.<br>
+	v_age  = '22'.<br>
+	<br>
+	<com>" Concaténation</com><br>
+	variable_final = |Le { v_date } { v_nom } à { v_age } ans.|. <com>" Bien mettre les espaces au début et à la fin des accolades</com><br>
+	<br>
+	WRITE variable_final.
 	
 	<!-- ############################################################################################### -->
 	<h2 class="first">API</h2>
