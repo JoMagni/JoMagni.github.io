@@ -9,7 +9,7 @@
 </head>
 
 <header>
-	<h1 class="header"><a href="..\..\index.html">Page Principale</a></h1>
+	<h1 class="titre_secondaire">Astuce SAP - <a href="#transaction_sap" class="blanc">Transaction SAP</a> <a href="#API" class="blanc">API</a> </h1>
 </header>
 	
 <body>
@@ -17,14 +17,14 @@
     <h1 class="titre_secondaire">Astuce SAP</h1>
 	
 	<!-- ############################################################################################### -->
-	<h2 class="first">Transactions SAP</h2>
+	<h2 class="first" id="transaction_sap">Transactions SAP</h2>
 	<p class="section">
 		<a href="transactions/generales.html">
-			<mot_clef>Transactions</mot_clef>
+			<mot_clef>Transactions 👁‍🗨</mot_clef>
 		</a>
 		<br>
 		<br>
-		<info>Recueuil de transaction SAP</info>
+		<info>Recueil de transaction SAP</info>
 	</p>
 	
 	<!-- ############################################################################################### -->
@@ -323,12 +323,42 @@
 	variable_final = |Le { v_date } { v_nom } à { v_age } ans.|. <com>" Bien mettre les espaces au début et à la fin des accolades</com><br>
 	<br>
 	WRITE variable_final.
-	
-	<!-- ############################################################################################### -->
-	<h2 class="first">API</h2>
+
+
+	<!-- _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ -->
 	<p class="section">
-		<a href="api/costcenter.html">
-			<mot_clef>ZAPI_COSTCENTER_SRV</mot_clef>
+	<mot_clef>FIELD-SYMBOLS</mot_clef><br>
+	<info>Le FIELD-SYMBOLS permet d'avoir une variable avec un type dyamique (texte / nombre / structure / ...).</info>
+	<br>
+	<br>
+	DATA: w_name  TYPE string VALUE `Valeur 1`,<br>
+	w_index TYPE i      VALUE 1.<br>
+	<br>
+	FIELD-SYMBOLS &lt;fs_test&gt; TYPE any. <com>" Déclaration pour tout les types standards</com><br>
+	<br>
+	ASSIGN w_name TO &lt;fs_test&gt;.       <com>" Assigne le type de "w_name" au "FIELD-SYMBOLS"</com><br>
+	PERFORM afficher.<br>
+	<br>
+	&lt;fs_test&gt; = 'Valeur 2'.           <com>" Changes la valeur de &lt;fs_test&gt;</com><br>
+	PERFORM afficher.<br>
+	<br>
+	ASSIGN w_index TO &lt;fs_test&gt;.      <com>" Réassigne un nouveau type à &lt;fs_test&gt;, il est maintenant de type "i"</com><br>
+	PERFORM afficher.<br>
+	<br>
+	ADD 1 TO &lt;fs_test&gt;.               <com>" Incrémente la valeur de &lt;fs_test&gt;</com><br>
+	PERFORM afficher.<br>
+	<br>
+	<br>
+	<br>
+	FORM afficher.<br>
+	  WRITE: &lt;fs_test&gt;, /.<br>
+	ENDFORM.
+		
+	<!-- ############################################################################################### -->
+	<h2 class="first" id="API">API</h2>
+	<p class="section">
+		<a href="api/costcenter.html" id="API">
+			<mot_clef>ZAPI_COSTCENTER_SRV 👁‍🗨</mot_clef>
 		</a>
 		<br>
 		<br>
