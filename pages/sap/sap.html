@@ -163,6 +163,38 @@
     WHERE a~ersda In @v_date<br>
 		AND a~aenam In @v_nom.<br>
 	</p>
+
+
+
+	<p class="section">
+	<mot_clef>SORT</mot_clef><br>
+	<info>SORT permet de trier une table interne par rapport à une colonne.</info><br>
+	<br>
+	<br>
+	<br>
+	<com>" Trier la table par date</com><br>
+	SORT lt_mara by date.
+	<br>
+	</p>
+
+	
+	<p class="section">
+	<mot_clef>AT</mot_clef><br>
+	<info>Les AT sont des conditions qui permettent de faire passer à chaque changement de donnée d'une colonne ou à chaque fin de groupe de colonne.</info><br>
+	<br>
+	<br>
+	<br>
+	<info>N'écrit que quand on à une date différentes</info><br>
+	AT NEW date.<br>
+    	WRITE: / ls_mara-nom, '--', ls_mara-date.<br>
+  	ENDAT.<br>
+	<br>
+	<info>Fait une séparation à la fin d'un groupe de dates identiques</info><br>
+	AT END OF date.<br>
+    	WRITE: /, '------------------', /.<br>
+  	ENDAT.<br>
+	<br>
+	</p>
 	
 	<!-- ############################################################################################### -->
 	<h2 class="first">Variables</h2>
@@ -322,7 +354,35 @@
 	<com>" Concaténation</com><br>
 	variable_final = |Le { v_date } { v_nom } à { v_age } ans.|. <com>" Bien mettre les espaces au début et à la fin des accolades</com><br>
 	<br>
-	WRITE variable_final.
+	WRITE variable_final.<br>
+	</p>
+
+
+	<p class="section">
+	<mot_clef>Modifier Une table</mot_clef><br>
+	<info>Les modifications de tables permettent de modifier les données dans une table.</info><br>
+	<br>
+	<mot_clef> /!\/!\/!\ ON NE CHANGE QUE LES TABLES INTERNE /!\/!\/!\ </mot_clef><br>
+	<br>
+	<br>
+	<br>
+	<com>Méthode 1</com><br>
+	LOOP AT lt_mara INTO ls_mara.<br>
+	ls_mara-nom = ''.<br>
+	MODIFY lt_mara FROM ls_mara TRANSPORTING nom.<br>
+	ENDLOOP.<br>
+	<br>
+	<br>
+	<com>Méthode 2</com><br>
+	ls_mara-nom = ''.<br>
+	MODIFY lt_mara FROM ls_mara TRANSPORTING nom WHERE nom IS NOT INITIAL.<br>
+	<br>
+	<br>
+	<com>Méthode 3</com><br>
+	LOOP AT lt_mara ASSIGNING FIELD-SYMBOL(<ls_mara>). <com>Déclaration du FIELD-SYMBOL à la volée.</com><br>
+  	<ls_mara>-nom = ''.<br>
+	ENDLOOP.
+	</p>
 
 
 	<!-- _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ -->
