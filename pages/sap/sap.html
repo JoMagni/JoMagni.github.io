@@ -133,7 +133,7 @@
 	<br>
 	<com>" Requête des champs de la table</com><br>
 	SELECT aenam, ersda<br>
-	  INTO TABLE @lt_mara<br>
+	  INTO TABLE @lt_mara FROM mara<br>
 	  WHERE ersda IN @v_date "AAAAMMJJ<br>
       AND   aenam IN @v_nom.<br>
 	<br>
