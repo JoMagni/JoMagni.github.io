@@ -178,14 +178,39 @@
 	
 	<p class="section">
 	<mot_clef>AT</mot_clef><br>
-	<info>Les AT sont des conditions qui permettent de faire passer à chaque changement de donnée d'une colonne ou à chaque fin de groupe de colonne.</info><br>
+	<info>Les AT sont des conditions qui permettent de passer dans le code à chaque changement de donnée de la colonne choisie ou d'une colonne qui la précèdes.</info><br>
 	<br>
-	<info>N'écrit que quand on à une date différentes</info><br>
+	TABLES: mara.<br>
+	<br>
+	<com>"Déclaration du type --> Permet de créer un type de table avec différents champs</com><br>
+	TYPES: BEGIN OF ty_mara,<br>
+	         date    TYPE ersda,<br>
+	         nom     TYPE aenam,<br>
+	         matiere TYPE wrkst,<br>
+	       END OF ty_mara.<br>
+	<br>
+	<com>" Déclaration d'une entête du type de table [ls_mara] et de la variable de la table [lt_mara].</com><br>
+	DATA: lt_mara TYPE TABLE OF ty_mara,<br>
+	      ls_mara TYPE ty_mara.<br>
+	<br>
+	<com>"Permet à l'utilisateur de rentrer les valeurs et conditions qu'il souhaite</com><br>
+	SELECT-OPTIONS: v_date FOR mara-ersda.<br>
+	SELECT-OPTIONS: v_nom FOR mara-aenam.<br>
+	<br>
+	<com>" Requête des champs de la table</com><br>
+	SELECT ersda, aenam,  wrkst<br>
+	INTO TABLE @lt_mara from mara<br>
+	WHERE ersda IN @v_date "AAAAMMJJ<br>
+	AND aenam IN @v_nom.<br>
+	<br>
+	LOOP AT lt_mara ASSIGNING FIELD-SYMBOL(<ls_mara>). <com>" --> faire un field symbole</com><br>
+	<br>
+	<com>Ecrit dès qu'une date change (ou une de ses colonnes précédentes)</com><br>
 	AT NEW date.<br>
-    	WRITE: / ls_mara-nom, '--', ls_mara-date.<br>
+    	WRITE: /, <ls_mara>-nom, '--', <ls_mara>-date, '--', <ls_mara>-matiere.<br>
   	ENDAT.<br>
 	<br>
-	<info>Fait une séparation à la fin d'un groupe de dates identiques</info><br>
+	<com>Ecrit quand un groupe de date arrive va changer (ou une de ses colonnes précédentes)</com><br>
 	AT END OF date.<br>
     	WRITE: /, '------------------', /.<br>
   	ENDAT.<br>
