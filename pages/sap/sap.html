@@ -132,10 +132,11 @@
 	SELECT-OPTIONS: v_nom  FOR mara-aenam.<br>
 	<br>
 	<com>" Requête des champs de la table</com><br>
-	SELECT aenam, ersda<br>
-	  INTO TABLE @lt_mara FROM mara<br>
+	SELECT FROM mara <br>
+	  FIELDS aenam, ersda <br>
 	  WHERE ersda IN @v_date "AAAAMMJJ<br>
-      AND   aenam IN @v_nom.<br>
+          AND   aenam IN @v_nom <br>
+	  INTO TABLE @lt_mara. <br>
 	<br>
 	<com>"Récupération des données de la requête</com><br>
 	LOOP AT lt_mara INTO ls_mara.<br>
@@ -146,7 +147,7 @@
 	
 	
 	<p class="section">
-	<mot_clef>SELECT INNER JOIN</mot_clef><br>
+	<mot_clef>SELECT INNER JOIN --> Potentiellement Obsolette (Voir syntaxe SELECT)</mot_clef><br>
 	<info>Les SELECT INNER JOIN permettent de faire des requêtes dans plusieurs table pour en extraire des données avec un paramètre commun</info>
 	<br>
 	<br>
@@ -198,10 +199,11 @@
 	SELECT-OPTIONS: v_nom FOR mara-aenam.<br>
 	<br>
 	<com>" Requête des champs de la table</com><br>
-	SELECT ersda, aenam,  wrkst<br>
-	INTO TABLE @lt_mara from mara<br>
-	WHERE ersda IN @v_date "AAAAMMJJ<br>
-	AND aenam IN @v_nom.<br>
+	SELECT FROM mara <br>
+	  FIELDS aenam, ersda <br>
+	  WHERE ersda IN @v_date "AAAAMMJJ<br>
+          AND   aenam IN @v_nom <br>
+	  INTO TABLE @lt_mara. <br>
 	<br>
 	LOOP AT lt_mara ASSIGNING FIELD-SYMBOL(<ls_mara>). <com>" --> faire un field symbole</com><br>
 	<br>
