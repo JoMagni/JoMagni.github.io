@@ -110,7 +110,7 @@
 	<!-- ############################################################################################### -->
 	<h2 class="first">Requêtes</h2>
 	<p class="section">
-	<mot_clef>SELECT</mot_clef><br>
+	<mot_clef>SELECT I</mot_clef><br>
 	<info>Les SELECT permettent de faire des requêtes dans une table pour en extraire des données</info>
 	<br>
 	<br>
@@ -143,6 +143,34 @@
 	  WRITE: / ls_mara-nom, '--', ls_mara-date.<br>
 	ENDLOOP.
 	</p>
+
+
+	<p class="section">
+	<mot_clef>SELECT II</mot_clef><br>
+	<info>Une autre façon de faire un SELECT, de façon dynamique cette fois.</info>
+	<br>
+	<br>
+	<br>
+	SELECT from mara
+	<br>
+  	FIELDS mandt,
+	<br>
+               matnr,
+        <br>
+	        ernam,
+        <br>
+	        mtart
+	<br>
+  	into table @data(lt_mara).
+	<br>
+	<br>
+	LOOP AT lt_mara ASSIGNING FIELD-SYMBOL(<ls_mara>).
+	<br>
+	WRITE: /, <ls_mara>-matnr.
+	<br>
+	ENDLOOP.
+	</p>
+
 	
 	
 	
