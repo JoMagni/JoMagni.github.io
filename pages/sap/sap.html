@@ -31,11 +31,11 @@
 	<h2 class="first">Données Utilisateur</h2>
 	<p class="section">
 	<mot_clef>PARAMETERS</mot_clef><br>
-	<info>PARAMETERS permet à l'utilisateur de rentrer une valeurs dans le champs</info><br>
+	<info>PARAMETERS permet à l'utilisateur de rentrer une valeur dans le champ</info><br>
 	PARAMETERS v_variable TYPE table-champs.<br>
 	<br>
-	<info>Le mot clef 'DEFAULT' permet de préremplir les données dans le champs</info><br>
-	SELECT-OPTIONS: v_date FOR mara-ersda DEFAULT '20010101' TO '20011231'.<com> --> ici on viens définit un ensemble de date</com>
+	<info>Le mot clef 'DEFAULT' permet de préremplir les données dans le champ</info><br>
+	SELECT-OPTIONS: v_date FOR mara-ersda DEFAULT '20010101' TO '20011231'.<com> --> ici on vient définir un ensemble de dates</com>
 	</p>
 	
 	<p class="section">
@@ -46,12 +46,12 @@
 	
 	<p class="section">
 	<mot_clef>RADIO BUTTON</mot_clef><br>
-	<info>Les RADIO BUTTON permettent à l'utilisateur de selectionner une valeurs parmis un ensemble</info><br>
-	PARAMETERS rb_01 RADIOBUTTON GROUP rb_0 DEFAULT 'X' USER-COMMAND ucomm. <com class="commentaire">" --> 'USER-COMMAND UCOMM' rend les Boutons Radio dynamiques au clique</com><br>
+	<info>Les RADIO BUTTON permettent à l'utilisateur de sélectionner une valeur parmi un ensemble</info><br>
+	PARAMETERS rb_01 RADIOBUTTON GROUP rb_0 DEFAULT 'X' USER-COMMAND ucomm. <com class="commentaire">" --> 'USER-COMMAND UCOMM' rend les Boutons Radio dynamiques au clic</com><br>
 	PARAMETERS rb_02 RADIOBUTTON GROUP rb_0.
 	<br>
 	<br>
-	<info>Les Bouttons Radio sont associé à un groupe pour savoir à qui ils sont liés.<br>
+	<info>Les Bouttons Radio sont associés à un groupe pour savoir à qui ils sont liés.<br>
 	Ils ont aussi un nom de variable pour définir si leur état est 'X' ou ' '.</info>
 	</p>
 	
@@ -61,7 +61,7 @@
 	<mot_clef>Onglets</mot_clef><br>
 	<info>Les Onglets permettent à l'utilisateur de naviguer dans plusieurs pages de l'application</info><br>
 	<br>
-	<com>Initialisation des écrants pour les onglets</com><br>
+	<com>Initialisation des écrans pour les onglets</com><br>
 	SELECTION-SCREEN BEGIN OF SCREEN 100 AS SUBSCREEN.<br>
 	SELECTION-SCREEN END OF SCREEN 100.<br>
 	<br>
@@ -71,7 +71,7 @@
 	SELECTION-SCREEN BEGIN OF SCREEN 300 AS SUBSCREEN.<br>
 	SELECTION-SCREEN END OF SCREEN 300.<br>
 	<br>
-	<com>Création des onglets dans un bloque</com><br>
+	<com>Création des onglets dans un bloc</com><br>
 	SELECTION-SCREEN: BEGIN OF TABBED BLOCK vb_onglets FOR 30 LINES,<br>
     TAB (20) tab0 USER-COMMAND ucomm_1 DEFAULT SCREEN 100,<br>
     TAB (20) tab1 USER-COMMAND ucomm_2 DEFAULT SCREEN 200,<br>
@@ -79,7 +79,7 @@
 	END OF BLOCK vb_onglets.
 	<br>
 	<br>
-	<info>Pour ajouter des éléments dans les onglets il faudra les mettres dans l'initialisation de l'écrants voulus</info>
+	<info>Pour ajouter des éléments dans les onglets il faudra les mettre dans l'initialisation de l'écran voulu</info>
 	</p>
 	
 	
