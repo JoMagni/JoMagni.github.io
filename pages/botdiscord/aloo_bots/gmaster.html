@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\..\..\styles.css">
+    <title>SAP Astuces</title>
+</head>
+
+<header class="row">
+	<h1><nav> <a href="..\..\..\index.html" class="blanc">Page Principale</a> <nav></h1>
+	<h1><nav> <a href="..\botdiscord.html" class="blanc">Retour</a> <nav></h1>
+</header>   
+	
+<body>
+	
+	<h1 class="titre_secondaire">Bots Aloo</h1>
+
+    <h2 class="first">Jet de dée</h2>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .roll 20</p>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .roll 10</p>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .roll 8</p>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .roll 6</p>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .roll 4</p>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .roll 2</p>
+
+    <h2 class="first">Envois de messages secrets</h2>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .ch aloo_</p>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .ch moddex_</p>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .ch g.fate_</p>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .ch zabro_</p>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .ch master117_</p>
+
+    <h2 class="first">Moyenne des jets de dée</h2>
+        <p class="scoreboard"><button onclick="copyToClipboard(this)">Copie</button> .mean @</p>
+
+    <script>
+        function copyToClipboard(button) {
+            var textToCopy = button.nextSibling.textContent || button.nextSibling.innerText;
+            navigator.clipboard.writeText(textToCopy.trim());
+        }
+    </script>
+
+</body>
+</html>
