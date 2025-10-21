@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <title>Carte Anguloce Lome</title>
   <style>
-    .carte-container {
-	
-    }
+    .carte-container {}
 
-    .ville, .lieu {
+    .ville,
+    .lieu {
       position: absolute;
       width: 20px;
       height: 20px;
@@ -38,159 +38,165 @@
     }
   </style>
 </head>
+
 <body>
 
-<div class="carte-container">
-  <img id="map" src="..\..\..\images\roleplay\map_roleplay_aloo.jpg" alt="Carte" />
+  <div class="carte-container">
+    <img id="map" src="..\..\..\images\roleplay\map_roleplay_aloo.jpg" alt="Carte" />
 
-  <!-- Villes de Lucirêve -->
-  <div class="ville" style="left:100px; top:193px;" data-nom="Oboudu"></div>
-  <div class="ville" style="left:325px; top:204px;" data-nom="Tearde"></div>
-  <div class="ville" style="left:350px; top:240px;" data-nom="Oidrien"></div>
-  <div class="ville" style="left:405px; top:215px;" data-nom="Tonlay"></div>
-  <div class="ville" style="left:440px; top:210px;" data-nom="Brumval"></div>
-  <div class="ville" style="left:464px; top:194px;" data-nom="Tonkan"></div>
-  <div class="ville" style="left:340px; top:335px;" data-nom="Pala"></div>
-  <div class="ville" style="left:310px; top:435px;" data-nom="Culi"></div>
-  <div class="ville" style="left:285px; top:480px;" data-nom="Iocv"></div>
-  <!-- Villes de Lucirêve FIN -->
-  
-  <!-- Lieux de Lucirêve -->
-  <div class="lieu" style="left:290px; top:200px;" data-nom="Grotte de la Résistance"></div>
-  <div class="lieu" style="left: 345px; top: 295px;" data-nom="Auberge Relais"></div>
-  <div class="lieu" style="left: 335px; top: 251px;" data-nom="Auberge Relais"></div>
-  <div class="lieu" style="left: 373px; top: 232px;" data-nom="Grotte de l'oidre"></div>
-  <div class="lieu" style="left: 314px; top: 342px;" data-nom="Manoir Debressuire"></div>
-  <div class="lieu" style="left: 455px; top: 231px;" data-nom="Raima"></div>
-  <div class="lieu" style="left: 494px; top: 173px;" data-nom="La forêt des Fæs"></div>
-  <!-- Lieux de Lucirêve FIN -->
-  
-  
-  
-  <!-- Villes de Anastare -->
-  <div class="ville" style="left: 610px; top: 238px;" data-nom="Shaul"></div>
-  <div class="ville" style="left: 649px; top: 253px;" data-nom="Brimnes"></div>
-  <div class="ville" style="left: 694px; top: 273px;" data-nom="Lardeur"></div>
-  <div class="ville" style="left: 787px; top: 293px;" data-nom="Port Denis"></div>
-  <div class="ville" style="left: 838px; top: 289px;" data-nom="Port Salut"></div>
-  <div class="ville" style="left: 611px; top: 390px;" data-nom="Shelna"></div>
-  <div class="ville" style="left: 969px; top: 272px;" data-nom="La cour"></div>
-  <div class="ville" style="left: 1054px; top: 236px;" data-nom="Chtétou"></div>
-  <div class="ville" style="left: 1074px; top: 236px;" data-nom="Anéris"></div>
-  <div class="ville" style="left: 993px; top: 451px;" data-nom="Anrealle"></div>
-  <!-- Villes de Anastare FIN -->
-  
-  <!-- Lieux de Anastare -->
-  <div class="lieu" style="left: 597px; top: 211px;" data-nom="Village des Elfes"></div>
-  <div class="lieu" style="left: 643px; top: 271px;" data-nom="Arbre inversé"></div>
-  <div class="lieu" style="left: 997px; top: 412px;" data-nom="Derré"></div>
-  <div class="lieu" style="left: 1007px; top: 587px;" data-nom="Camps des damnés"></div>
-  <!-- Lieux de Anastare FIN -->
-  
-  <!-- Villes de Karn -->
-  <div class="ville" style="left: 430px; top: 583px;" data-nom="Curwult"></div>
-  <!-- Villes de Karn FIN -->
-  
-  <!-- Lieux de Karn -->
-  <div class="lieu" style="left: 466px; top: 549px;" data-nom="Camp du desert"></div>
-  <div class="lieu" style="left: 436px; top: 623px;" data-nom="Oasis"></div>
-  <!-- Lieux de Karn FIN -->
-  
-  <!-- Villes de Madwal -->
-  <div class="ville" style="left: 670px; top: 569px;" data-nom="Thormouth"></div>
-  <div class="ville" style="left: 550px; top: 533px;" data-nom="Holanoce"></div>
-  <div class="ville" style="left: 653px; top: 624px;" data-nom="Bléger"></div>
-  <div class="ville" style="left: 667px; top: 597px;" data-nom="Juant"></div>
-  <!-- Villes de Madwal FIN -->
-  
-  <!-- Lieux de Madwal -->
-  <div class="lieu" style="left: 606px; top: 557px;" data-nom="Colisée"></div>
-  <div class="lieu" style="left: 525px; top: 600px;" data-nom="Bibliothèque"></div>
-  <div class="lieu" style="left: 715px; top: 581px;" data-nom="Temple du Shimmerhorn"></div>
-  <div class="lieu" style="left: 793px; top: 604px;" data-nom="DR.Agon"></div>
-  <!-- Lieux de Madwal FIN -->
-  
-  <!-- Villes de Danaïi -->
-  <div class="ville" style="left: 1157px; top: 514px;" data-nom="Nix"></div>
-  <div class="ville" style="left: 1235px; top: 448px;" data-nom="Celma"></div>
-  <div class="ville" style="left: 1327px; top: 373px;" data-nom="Urta"></div>
-  <div class="ville" style="left: 1331px; top: 429px;" data-nom="Safra"></div>
-  <div class="ville" style="left: 1366px; top: 441px;" data-nom="Sechô"></div>
-  <div class="ville" style="left: 1406px; top: 431px;" data-nom="Lenwë"></div>
-  <div class="ville" style="left: 1230px; top: 223px;" data-nom="Aiwenor Enda"></div>
-  <!-- Villes de Danaïi FIN -->
-  
-  <!-- Lieux de Danaïi -->
-  <div class="lieu" style="left: 1290px; top: 442px;" data-nom="Royaume des Insectes"></div>
-  <!-- Lieux de Danaïi FIN -->
-  
-  <!-- Villes de Imarh -->
-  <div class="ville" style="left: 1409px; top: 188px;" data-nom="Gurvan"></div>
-  <div class="ville" style="left: 1310px; top: 189px;" data-nom="Culuma"></div>
-  <div class="ville" style="left: 1310px; top: 247px;" data-nom="Aràto"></div>
-  <div class="ville" style="left: 1447px; top: 242px;" data-nom="Cépaphoüu"></div>
-  <div class="ville" style="left: 1515px; top: 199px;" data-nom="Acauté"></div>
-  <div class="ville" style="left: 1567px; top: 213px;" data-nom="Village en cendre"></div>
-  <div class="ville" style="left: 1549px; top: 351px;" data-nom="Village des Aarakocras"></div>
-  <!-- Villes de Imarh FIN -->
-  
-  <!-- Lieux de Imarh -->
-  <div class="ville" style="left: 1420px; top: 313px;" data-nom="Le Nid"></div>
-  <div class="ville" style="left: 1490px; top: 278px;" data-nom="La Résistance"></div>
-  <div class="ville" style="left: 1403px; top: 240px;" data-nom="Le moulin"></div>
-  <!-- Lieux de Imarh FIN -->
-  
-  <!-- Villes des terres désolée  -->
-  <div class="ville" style="left: 1674px; top: 395px;" data-nom="Irima"></div>
-  <!-- Villes des terres désolée  FIN -->
-  
-  <!-- Lieux des terres désolée  -->
-  <!-- Lieux des terres désolée  FIN -->
-  
-  <div class="tooltip" id="tooltip"></div>
-</div>
+    <!-- Villes de Lucirêve -->
+    <div class="ville" style="left:100px; top:193px;" data-nom="Oboudu"></div>
+    <div class="ville" style="left:325px; top:204px;" data-nom="Tearde"></div>
+    <div class="ville" style="left:350px; top:240px;" data-nom="Oidrien"></div>
+    <div class="ville" style="left:405px; top:215px;" data-nom="Tonlay"></div>
+    <div class="ville" style="left:440px; top:210px;" data-nom="Brumval"></div>
+    <div class="ville" style="left:464px; top:194px;" data-nom="Tonkan"></div>
+    <div class="ville" style="left:340px; top:335px;" data-nom="Pala"></div>
+    <div class="ville" style="left:310px; top:435px;" data-nom="Culi"></div>
+    <div class="ville" style="left:285px; top:480px;" data-nom="Iocv"></div>
+    <!-- Villes de Lucirêve FIN -->
 
-<script>
-  const tooltip = document.getElementById('tooltip');
+    <!-- Lieux de Lucirêve -->
+    <div class="lieu" style="left:290px; top:200px;" data-nom="Grotte de la Résistance"></div>
+    <div class="lieu" style="left: 345px; top: 295px;" data-nom="Auberge Relais"></div>
+    <div class="lieu" style="left: 335px; top: 251px;" data-nom="Auberge Relais"></div>
+    <div class="lieu" style="left: 373px; top: 232px;" data-nom="Grotte de l'oidre"></div>
+    <div class="lieu" style="left: 314px; top: 342px;" data-nom="Manoir Debressuire"></div>
+    <div class="lieu" style="left: 455px; top: 231px;" data-nom="Raima"></div>
+    <div class="lieu" style="left: 494px; top: 173px;" data-nom="La forêt des Fæs"></div>
+    <!-- Lieux de Lucirêve FIN -->
 
-  // Affichage des tooltips pour villes et lieux
-  const elements = document.querySelectorAll('.ville, .lieu');
 
-  elements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      tooltip.textContent = el.dataset.nom;
-      tooltip.style.opacity = '1';
+
+    <!-- Villes de Anastare -->
+    <div class="ville" style="left: 610px; top: 238px;" data-nom="Shaul"></div>
+    <div class="ville" style="left: 649px; top: 253px;" data-nom="Brimnes"></div>
+    <div class="ville" style="left: 694px; top: 273px;" data-nom="Lardeur"></div>
+    <div class="ville" style="left: 787px; top: 293px;" data-nom="Port Denis"></div>
+    <div class="ville" style="left: 838px; top: 289px;" data-nom="Port Salut"></div>
+    <div class="ville" style="left: 611px; top: 390px;" data-nom="Shelna"></div>
+    <div class="ville" style="left: 969px; top: 272px;" data-nom="La cour"></div>
+    <div class="ville" style="left: 1054px; top: 236px;" data-nom="Chtétou"></div>
+    <div class="ville" style="left: 1074px; top: 236px;" data-nom="Anéris"></div>
+    <div class="ville" style="left: 993px; top: 451px;" data-nom="Anrealle"></div>
+    <!-- Villes de Anastare FIN -->
+
+    <!-- Lieux de Anastare -->
+    <div class="lieu" style="left: 597px; top: 211px;" data-nom="Village des Elfes"></div>
+    <div class="lieu" style="left: 643px; top: 271px;" data-nom="Arbre inversé"></div>
+    <div class="lieu" style="left: 997px; top: 412px;" data-nom="Derré"></div>
+    <div class="lieu" style="left: 1007px; top: 587px;" data-nom="Camps des damnés"></div>
+    <div class="lieu" style="left: 927px; top: 538px;" data-nom="Chez les D'Auverlier"></div>
+    <!-- Lieux de Anastare FIN -->
+
+    <!-- Villes de Karn -->
+    <div class="ville" style="left: 430px; top: 583px;" data-nom="Curwult"></div>
+    <!-- Villes de Karn FIN -->
+
+    <!-- Lieux de Karn -->
+    <div class="lieu" style="left: 466px; top: 549px;" data-nom="Camp du desert"></div>
+    <div class="lieu" style="left: 436px; top: 623px;" data-nom="Oasis"></div>
+    <!-- Lieux de Karn FIN -->
+
+    <!-- Villes de Madwal -->
+    <div class="ville" style="left: 670px; top: 569px;" data-nom="Thormouth"></div>
+    <div class="ville" style="left: 550px; top: 533px;" data-nom="Holanoce"></div>
+    <div class="ville" style="left: 653px; top: 624px;" data-nom="Bléger"></div>
+    <div class="ville" style="left: 667px; top: 597px;" data-nom="Juant"></div>
+    <div class="ville" style="left: 714px; top: 611px;" data-nom="Mapo"></div>
+    <div class="ville" style="left: 742px; top: 632px;" data-nom="Lort"></div>
+    <div class="ville" style="left: 767px; top: 645px;" data-nom="Méno"></div>
+    <!-- Villes de Madwal FIN -->
+
+    <!-- Lieux de Madwal -->
+    <div class="lieu" style="left: 606px; top: 557px;" data-nom="Colisée"></div>
+    <div class="lieu" style="left: 525px; top: 600px;" data-nom="Bibliothèque"></div>
+    <div class="lieu" style="left: 715px; top: 581px;" data-nom="Temple du Shimmerhorn"></div>
+    <div class="lieu" style="left: 793px; top: 604px;" data-nom="DR.Agon"></div>
+    <!-- Lieux de Madwal FIN -->
+
+    <!-- Villes de Danaïi -->
+    <div class="ville" style="left: 1157px; top: 514px;" data-nom="Nix"></div>
+    <div class="ville" style="left: 1235px; top: 448px;" data-nom="Celma"></div>
+    <div class="ville" style="left: 1327px; top: 373px;" data-nom="Urta"></div>
+    <div class="ville" style="left: 1331px; top: 429px;" data-nom="Safra"></div>
+    <div class="ville" style="left: 1366px; top: 441px;" data-nom="Sechô"></div>
+    <div class="ville" style="left: 1406px; top: 431px;" data-nom="Lenwë"></div>
+    <div class="ville" style="left: 1230px; top: 223px;" data-nom="Aiwenor Enda"></div>
+    <!-- Villes de Danaïi FIN -->
+
+    <!-- Lieux de Danaïi -->
+    <div class="lieu" style="left: 1290px; top: 442px;" data-nom="Royaume des Insectes"></div>
+    <!-- Lieux de Danaïi FIN -->
+
+    <!-- Villes de Imarh -->
+    <div class="ville" style="left: 1409px; top: 188px;" data-nom="Gurvan"></div>
+    <div class="ville" style="left: 1310px; top: 189px;" data-nom="Culuma"></div>
+    <div class="ville" style="left: 1310px; top: 247px;" data-nom="Aràto"></div>
+    <div class="ville" style="left: 1447px; top: 242px;" data-nom="Cépaphoüu"></div>
+    <div class="ville" style="left: 1515px; top: 199px;" data-nom="Acauté"></div>
+    <div class="ville" style="left: 1567px; top: 213px;" data-nom="Village en cendre"></div>
+    <div class="ville" style="left: 1549px; top: 351px;" data-nom="Village des Aarakocras"></div>
+    <!-- Villes de Imarh FIN -->
+
+    <!-- Lieux de Imarh -->
+    <div class="ville" style="left: 1420px; top: 313px;" data-nom="Le Nid"></div>
+    <div class="ville" style="left: 1490px; top: 278px;" data-nom="La Résistance"></div>
+    <div class="ville" style="left: 1403px; top: 240px;" data-nom="Le moulin"></div>
+    <!-- Lieux de Imarh FIN -->
+
+    <!-- Villes des terres désolée  -->
+    <div class="ville" style="left: 1674px; top: 395px;" data-nom="Irima"></div>
+    <!-- Villes des terres désolée  FIN -->
+
+    <!-- Lieux des terres désolée  -->
+    <!-- Lieux des terres désolée  FIN -->
+
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+
+  <script>
+    const tooltip = document.getElementById('tooltip');
+
+    // Affichage des tooltips pour villes et lieux
+    const elements = document.querySelectorAll('.ville, .lieu');
+
+    elements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        tooltip.textContent = el.dataset.nom;
+        tooltip.style.opacity = '1';
+      });
+
+      el.addEventListener('mousemove', (e) => {
+        tooltip.style.top = (e.pageY - 30) + 'px';
+        tooltip.style.left = (e.pageX + 10) + 'px';
+      });
+
+      el.addEventListener('mouseleave', () => {
+        tooltip.style.opacity = '0';
+      });
     });
 
-    el.addEventListener('mousemove', (e) => {
-      tooltip.style.top = (e.pageY - 30) + 'px';
-      tooltip.style.left = (e.pageX + 10) + 'px';
+    // Clic sur l'image pour copier les coordonnées
+    const image = document.getElementById('map');
+
+    image.addEventListener('click', function (e) {
+      const rect = image.getBoundingClientRect();
+      const x = Math.round(e.clientX - rect.left);
+      const y = Math.round(e.clientY - rect.top);
+
+      const text = `<div class="ville" style="left: ${x}px; top: ${y}px;" data-nom="Nom de la ville"></div>`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        tooltip.textContent = `Copié: ${x}px, ${y}px`;
+        tooltip.style.top = (e.pageY - 30) + 'px';
+        tooltip.style.left = (e.pageX + 10) + 'px';
+        tooltip.style.opacity = '1';
+        setTimeout(() => tooltip.style.opacity = '0', 1500);
+      });
     });
-
-    el.addEventListener('mouseleave', () => {
-      tooltip.style.opacity = '0';
-    });
-  });
-
-  // Clic sur l'image pour copier les coordonnées
-  const image = document.getElementById('map');
-
-  image.addEventListener('click', function (e) {
-    const rect = image.getBoundingClientRect();
-    const x = Math.round(e.clientX - rect.left);
-    const y = Math.round(e.clientY - rect.top);
-
-    const text = `<div class="ville" style="left: ${x}px; top: ${y}px;" data-nom="Nom de la ville"></div>`;
-
-    navigator.clipboard.writeText(text).then(() => {
-      tooltip.textContent = `Copié: ${x}px, ${y}px`;
-      tooltip.style.top = (e.pageY - 30) + 'px';
-      tooltip.style.left = (e.pageX + 10) + 'px';
-      tooltip.style.opacity = '1';
-      setTimeout(() => tooltip.style.opacity = '0', 1500);
-    });
-  });
-</script>
+  </script>
 
 </body>
+
 </html>
