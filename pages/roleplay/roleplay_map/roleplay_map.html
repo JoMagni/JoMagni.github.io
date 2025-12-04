@@ -12,11 +12,11 @@
     .capitale,
     .eau,
     .colisee,
-    .moulin {
+    .moulin,
+    .camp {
       position: absolute;
       width: 20px;
       height: 20px;
-      border-radius: 50%;
       cursor: pointer;
     }
 
@@ -50,7 +50,7 @@
 
     <!-- Villes de Lucirêve -->
     <div class="ville" style="left:100px; top:193px;" data-nom="Oboudu"></div>
-    <div class="ville" style="left:325px; top:204px;" data-nom="Tearde"></div>
+    <div class="capitale" style="left:325px; top:204px;" data-nom="Tearde"></div>
     <div class="ville" style="left:350px; top:240px;" data-nom="Oidrien"></div>
     <div class="ville" style="left:405px; top:215px;" data-nom="Tonlay"></div>
     <div class="ville" style="left:440px; top:210px;" data-nom="Brumval"></div>
@@ -104,7 +104,7 @@
     <!-- Villes de Madwal -->
     <div class="capitale" style="left: 670px; top: 569px;" data-nom="Thormouth"></div>
     <div class="ville" style="left: 550px; top: 533px;" data-nom="Holanoce"></div>
-    <div class="ville" style="left: 645px; top: 621px;" data-nom="Bléger"></div>
+    <div class="ville" style="left: 645px; top: 622px;" data-nom="Bléger"></div>
     <div class="ville" style="left: 667px; top: 598px;" data-nom="Juan"></div>
     <div class="ville" style="left: 695px; top: 612px;" data-nom="Mapo"></div>
     <div class="ville" style="left: 734px; top: 623px;" data-nom="Lort"></div>
@@ -160,7 +160,7 @@
     const tooltip = document.getElementById('tooltip');
 
     // Affichage des tooltips pour villes et lieux
-    const elements = document.querySelectorAll('.ville, .lieu, .capitale, .eau, .moulin, .colisee');
+    const elements = document.querySelectorAll('.ville, .lieu, .capitale, .eau, .moulin, .colisee, .camp');
 
     const iconsByClass = {
       ville: "../../../images/roleplay/icons/ville.png",
@@ -168,7 +168,8 @@
       capitale: "../../../images/roleplay/icons/capitale.png",
       colisee: "../../../images/roleplay/icons/colisee.png",
       eau: "../../../images/roleplay/icons/eau.png",
-      moulin: "../../../images/roleplay/icons/moulin.png"
+      moulin: "../../../images/roleplay/icons/moulin.png",
+      camp: "../../../images/roleplay/icons/camp.png"
     };
 
     elements.forEach(el => {
@@ -186,15 +187,29 @@
         tooltip.style.opacity = '0';
       });
 
+      // ajout dynamique des icones
       for (const className in iconsByClass) {
         if (el.classList.contains(className)) {
           el.style.backgroundImage = `url('${iconsByClass[className]}')`;
           el.style.backgroundSize = 'contain';
           el.style.backgroundRepeat = 'no-repeat';
-          el.style.width = '12px';
-          el.style.height = '12px';
           el.style.position = 'absolute';
           if (el.classList.contains("capitale")) {
+            el.style.width = '35px';
+            el.style.height = '35px';
+            el.style.transform = "translate(-20%, -35%)";
+          }
+          else if (el.classList.contains("ville")) {
+            el.style.width = '30px';
+            el.style.height = '30px';
+            el.style.transform = "translate(-10%, -45%)";
+          }
+          else if (el.classList.contains("colisee")) {
+            el.style.width = '45px';
+            el.style.height = '45px';
+            el.style.transform = "translate(-20%, 0%)";
+          }
+          else {
             el.style.width = '20px';
             el.style.height = '20px';
           }

@@ -12,7 +12,8 @@
     .capitale,
     .eau,
     .colisee,
-    .moulin {
+    .moulin,
+    .camp {
       position: absolute;
       width: 20px;
       height: 20px;
@@ -104,7 +105,7 @@
     <!-- Villes de Madwal -->
     <div class="capitale" style="left: 670px; top: 569px;" data-nom="Thormouth"></div>
     <div class="ville" style="left: 550px; top: 533px;" data-nom="Holanoce"></div>
-    <div class="ville" style="left: 645px; top: 621px;" data-nom="Bléger"></div>
+    <div class="ville" style="left: 645px; top: 622px;" data-nom="Bléger"></div>
     <div class="ville" style="left: 667px; top: 597px;" data-nom="Juant"></div>
     <div class="ville" style="left: 714px; top: 611px;" data-nom="Mapo"></div>
     <div class="ville" style="left: 742px; top: 632px;" data-nom="Lort"></div>
@@ -162,7 +163,7 @@
     const tooltip = document.getElementById('tooltip');
 
     // Affichage des tooltips pour villes et lieux
-    const elements = document.querySelectorAll('.ville, .lieu, .capitale, .eau, .moulin, .colisee');
+    const elements = document.querySelectorAll('.ville, .lieu, .capitale, .eau, .moulin, .colisee, .camp');
 
     const iconsByClass = {
       ville: "../../../images/roleplay/icons/ville.png",
@@ -170,7 +171,8 @@
       capitale: "../../../images/roleplay/icons/capitale.png",
       colisee: "../../../images/roleplay/icons/colisee.png",
       eau: "../../../images/roleplay/icons/eau.png",
-      moulin: "../../../images/roleplay/icons/moulin.png"
+      moulin: "../../../images/roleplay/icons/moulin.png",
+      camp: "../../../images/roleplay/icons/camp.png"
     };
 
     elements.forEach(el => {
