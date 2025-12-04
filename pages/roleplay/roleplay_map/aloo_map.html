@@ -195,10 +195,13 @@
           el.style.backgroundImage = `url('${iconsByClass[className]}')`;
           el.style.backgroundSize = 'contain';
           el.style.backgroundRepeat = 'no-repeat';
-          el.style.width = '32px';
-          el.style.height = '32px';
+          el.style.width = '20px';
+          el.style.height = '20px';
           el.style.position = 'absolute';
-          el.style.transform = 'translate(-50%, -50%)';
+          if (el.className == "capitale") {
+            el.style.width = '20px';
+            el.style.height = '20px';
+          }
         }
       }
     });
