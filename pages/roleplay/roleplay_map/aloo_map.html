@@ -143,8 +143,8 @@
     <!-- Villes de Imarh FIN -->
 
     <!-- Lieux de Imarh -->
-    <div class="ville" style="left: 1420px; top: 313px;" data-nom="Le Nid"></div>
-    <div class="ville" style="left: 1490px; top: 278px;" data-nom="La Résistance"></div>
+    <div class="lieu" style="left: 1420px; top: 313px;" data-nom="Le Nid"></div>
+    <div class="lieu" style="left: 1490px; top: 278px;" data-nom="La Résistance"></div>
     <div class="moulin" style="left: 1403px; top: 240px;" data-nom="Le moulin"></div>
     <!-- Lieux de Imarh FIN -->
 
@@ -162,7 +162,7 @@
     const tooltip = document.getElementById('tooltip');
 
     // Affichage des tooltips pour villes et lieux
-    const elements = document.querySelectorAll('.ville, .lieu, .capitale');
+    const elements = document.querySelectorAll('.ville, .lieu, .capitale, .eau, .moulin, .colisee');
 
     const iconsByClass = {
       ville: "../../../images/roleplay/icons/ville.png",
@@ -194,12 +194,18 @@
           el.style.backgroundImage = `url('${iconsByClass[className]}')`;
           el.style.backgroundSize = 'contain';
           el.style.backgroundRepeat = 'no-repeat';
-          el.style.width = '20px';
-          el.style.height = '20px';
           el.style.position = 'absolute';
           if (el.classList.contains("capitale")) {
-            el.style.width = '30px';
-            el.style.height = '30px';
+            el.style.width = '35px';
+            el.style.height = '35px';
+          }
+          else if (el.classList.contains("vile")) {
+            el.style.width = '25px';
+            el.style.height = '25px';
+          }
+          else {
+            el.style.width = '20px';
+            el.style.height = '20px';
           }
         }
       }
