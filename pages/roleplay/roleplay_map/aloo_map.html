@@ -48,6 +48,15 @@
   <div class="carte-container">
     <img id="map" src="..\..\..\images\roleplay\map_roleplay_aloo.jpg" alt="Carte" />
 
+    <!-- Lieux de téléportation -->
+    <div class="marque_y" style="left: 606px; top: 547px;" data-nom="TP Colisée"></div>
+    <div class="marque_y" style="left: 611px; top: 380px;" data-nom="TP Shelna"></div>
+    <div class="marque_y" style="left: 904px; top: 595px;" data-nom="TP pirates"></div>
+    <div class="marque_y" style="left: 1270px; top: 363px;" data-nom="TP Soldant"></div>
+
+
+    <!-- Lieux de téléportation FIN -->
+
     <!-- Villes de Lucirêve -->
     <div class="ville" style="left:100px; top:193px;" data-nom="Oboudu"></div>
     <div class="capitale" style="left:325px; top:204px;" data-nom="Tearde"></div>
@@ -84,6 +93,8 @@
     <div class="ville" style="left: 1074px; top: 236px;" data-nom="Anéris"></div>
     <div class="ville" style="left: 993px; top: 451px;" data-nom="Anrealle"></div>
     <div class="ville" style="left: 929px; top: 528px;" data-nom="Adover"></div>
+    <div class="ville" style="left: 975px; top: 503px;" data-nom="Ando"></div>
+    <div class="ville" style="left: 902px; top: 595px;" data-nom="Ruines du lac météore"></div>
     <!-- Villes de Anastare FIN -->
 
     <!-- Lieux de Anastare -->
@@ -129,6 +140,7 @@
     <div class="ville" style="left: 1406px; top: 431px;" data-nom="Lenwë"></div>
     <div class="ville" style="left: 1230px; top: 223px;" data-nom="Aiwenor Enda"></div>
     <div class="ville" style="left: 1630px; top: 509px;" data-nom="Nificea"></div>
+    <div class="ville" style="left: 1272px; top: 360px;" data-nom="Soldant"></div>
     <!-- Villes de Danaïi FIN -->
 
     <!-- Lieux de Danaïi -->
@@ -165,7 +177,7 @@
     const tooltip = document.getElementById('tooltip');
 
     // Affichage des tooltips pour villes et lieux
-    const elements = document.querySelectorAll('.ville, .lieu, .capitale, .eau, .moulin, .colisee, .camp');
+    const elements = document.querySelectorAll('.ville, .lieu, .capitale, .eau, .moulin, .colisee, .camp, .marque_y');
 
     const iconsByClass = {
       ville: "../../../images/roleplay/icons/ville.png",
@@ -174,7 +186,8 @@
       colisee: "../../../images/roleplay/icons/colisee.png",
       eau: "../../../images/roleplay/icons/eau.png",
       moulin: "../../../images/roleplay/icons/moulin.png",
-      camp: "../../../images/roleplay/icons/camp.png"
+      camp: "../../../images/roleplay/icons/camp.png",
+      marque_y: "../../../images/roleplay/icons/marque_yellow.png"
     };
 
     elements.forEach(el => {
